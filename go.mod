@@ -1,4 +1,4 @@
-module github.com/stephens2424/rrule
+module github.com/kazhuravlev/rrule
 
 go 1.12
 
