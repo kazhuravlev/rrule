@@ -112,5 +112,4 @@ func (i *iterator) Peek() *time.Time {
 	}
 }
 
-// https://stackoverflow.com/questions/25065055/what-is-the-maximum-time-time-in-go
-var absoluteMaxTime = time.Date(219248499, 01, 01, 0, 0, 0, 0, time.UTC)
+var absoluteMaxTime = time.Date(time.Now().AddDate(10, 0, 0).Year(), 01, 01, 0, 0, 0, 0, time.UTC)

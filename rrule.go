@@ -522,6 +522,9 @@ func setYearly(rrule RRule) *iterator {
 		next: func() *time.Time {
 			ret := current // copy current
 			current = current.AddDate(interval, 0, 0)
+			if !rrule.Until.IsZero() && ret.After(rrule.Until) {
+				return nil
+			}
 			return &ret
 		},
 
