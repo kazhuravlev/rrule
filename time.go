@@ -9,6 +9,7 @@ import (
 )
 
 const (
+	rfc5545Date          = "20060102"
 	rfc5545WithOffset    = "20060102T150405Z0700"
 	rfc5545WithoutOffset = "20060102T150405"
 )
@@ -52,6 +53,9 @@ func parseTime(str string, defaultLoc *time.Location) (time.Time, bool, error) {
 	if err != nil {
 		offsetFound = false
 		t, err = time.ParseInLocation(rfc5545WithoutOffset, str, loc)
+		if err != nil {
+			t, err = time.ParseInLocation(rfc5545Date, str, loc)
+		}
 	}
 
 	// From RFC 5545:
